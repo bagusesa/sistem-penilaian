@@ -1,6 +1,6 @@
 def score_course(mid_score, overall_mid_weight, final_score, overall_final_weight, CO_mid_weight, CO_final_weight, quiz_score, overall_quiz_weight, CO_quiz_weight, contribution):
     score = 0
-    for i in range(10):
+    for i in range(len(CO_final_weight)):
         try:
             score += (mid_score*overall_mid_weight/100*CO_mid_weight[i]/100+final_score*overall_final_weight/100*CO_final_weight[i]/100+quiz_score*overall_quiz_weight/100*CO_quiz_weight[i]/100)/(contribution[i]/5)
         except ZeroDivisionError:
@@ -21,7 +21,7 @@ def score_subcourse(mid_score,overall_mid_weight, mid_weight, final_score, overa
 
 def score_grouping(mid_score, overall_mid_weight, CO_mid_weight, final_score, overall_final_weight, CO_final_weight, quiz_score, overall_quiz_weight, CO_quiz_weight, performance, overall_perform_weight, CO_perform_weight, AKHLAK, contribution):
     score = 0
-    for i in range(10):
+    for i in range(len(CO_quiz_weight)):
         try:
             score += ((mid_score+AKHLAK)/2*overall_mid_weight/100*CO_mid_weight[i]/100+(final_score+AKHLAK)/2*overall_final_weight/100*CO_final_weight[i]/100+(quiz_score+AKHLAK)/2*overall_quiz_weight/100*CO_quiz_weight[i]/100+(performance)*overall_perform_weight/100*CO_perform_weight[i]/100)/(contribution[i]/5)
         except ZeroDivisionError:
